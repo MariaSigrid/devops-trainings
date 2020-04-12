@@ -7,7 +7,7 @@ services:
        - ./mysql:/var/lib/mysql
      restart: always
      networks:
-       privnet: {}
+       - privnet
      environment:
        MYSQL_DATABASE: classicmodels
        MYSQL_USER: wordpress
