@@ -25,6 +25,11 @@ services:
      restart: always
      networks:
        - pubnet
+     healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost"]
+        interval: 1m30s
+        timeout: 10s
+        retries: 3
      environment:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: wordpress
