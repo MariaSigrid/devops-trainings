@@ -2,17 +2,21 @@ version: '3.1'
 
 services:
    db:
-     image: mysql:5.7
+     build:
+        context: ./mysql
      volumes:
        - ./mysql:/var/lib/mysql
      restart: always
+     ports:
+       - 3306:3306
      networks:
        - privnet
      environment:
-       MYSQL_ALLOW_EMPTY_PASSWORD: true
+       MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
        MYSQL_DATABASE: classicmodels
        MYSQL_USER: wordpress
        MYSQL_PASSWORD: wordpress
+     command: --explicit_defaults_for_timestamp
    wordpress:
      depends_on:
        - db
