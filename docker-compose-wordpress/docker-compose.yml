@@ -15,7 +15,7 @@ services:
        MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
        MYSQL_DATABASE: classicmodels
        MYSQL_USER: wordpress
-       MYSQL_PASSWORD: wordpress
+       MYSQL_PASSWORD: wp123456
      command: --explicit_defaults_for_timestamp
    wordpress:
      depends_on:
@@ -39,7 +39,7 @@ services:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: wordpress
        WORDPRESS_DB_PASSWORD: wp123456
-       WORDPRESS_DB_NAME: wordpress
+       WORDPRESS_DB_NAME: classicmodels
 volumes:
    mysql: {}
 networks:
